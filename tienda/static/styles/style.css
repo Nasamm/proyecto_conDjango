@@ -1,0 +1,132 @@
+* {
+    margin: 0;
+    padding: 0%;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+
+}
+
+.navbar {
+    background: linear-gradient(120deg, #727272, #fffbff);
+}
+
+.navbar-nav {
+    font-size: 15px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.carro:hover #carito {
+    display: block;
+    position: absolute;
+    right: 0;
+    backdrop-filter: blur(10px);
+}
+
+body {
+    padding-left: 1px;
+    padding-right: 1px;
+    background: linear-gradient(120deg, #50cace, #a740b1);
+    font-family: 'Poppins', sans-serif;
+    background-repeat: no-repeat;
+}
+
+.npt h2 {
+    justify-content: center;
+    padding-top: 3%;
+    width: 100%;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+}
+
+.description p {
+    text-align: justify;
+    padding-left: 3%;
+    padding-right: 3%;
+    font-size: 18px;
+    justify-content: flex-start;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+
+}
+
+#productos {
+    padding-top: 2%;
+    padding-left: 12px;
+    padding-right: 12px;
+    display: flex;
+}
+
+#resaltar {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.card-title {
+    font-weight: bold;
+    font-size: 25px;
+    justify-content: right;
+}
+
+.card-body {
+    padding: 1%;
+    background: linear-gradient(120deg, #e79ae1, #0beca9);
+    border-radius: 10px;
+    -webkit-box-shadow: 10px 10px 20px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 10px 10px 20px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 10px 10px 20px 0px rgba(0, 0, 0, 0.75);
+    text-align: justify;
+}
+
+.pie {
+    padding: 2%;
+    background: linear-gradient(120deg, #e79ae1, #0beca9);
+    height: 25%;
+    text-align: center;
+}
+
+.icon {
+    display: flex;
+    /* justify-content: space-between; */
+    justify-content: center;
+    gap: 40px;
+    padding: 1%;
+}
+
+#carrito {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #ffffff;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+#carrito-items li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  #carrito-items img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+  }
+
+@media only screen and (max-width: 600px) {
+    #footer-title {
+        text-align: center;
+        padding-top: 5%;
+    }
+
+    #productos {
+        display: flex;
+        flex-direction: column;
+        padding-top: 2%;
+        padding-left: 12px;
+        padding-right: 12px;
+
+    }
+}
