@@ -12,3 +12,11 @@ def home(request):
 
 def agregar_producto(request):
     return render(request='tienda/producto/agregar.html')
+
+def registro(request):
+
+    return render(request, 'tienda/registro.html')
+
+def us(request):
+
+    return render(request, 'tienda/sobrenos.html')
