@@ -4,24 +4,24 @@
 {% load static %}
 
     <section class="products" id="productos">
-    <div class="row mb-0"> 
-      {% for p in productos%}  
-        <div class="col-lg-4 mb-4" id="col1">
-            <div class="card h-100">
-                {% if p.imagen%}
-                <img src="{{p.imagen.url}}" class="card-img-top" alt="...">
-                {%endif%}
-                <div class="card-body">
-                    <h5 class="card-title">{{p.nombre}}</h5>
-                    <p class="card-text"> <span id="resaltar">Caracteristicas:</span>{{p.caracteristica}} </p>
-                    <p class="card-text">{{p.marca}} </p>
-                    <p class="precio"> <span id="resaltar"> Precio:</span> <span  id="precio">${{p.precio | intcomma}}</span></p>
-                    <a href="#" class="btn btn-primary" data-id="1" onclick="agregarAlCarrito('Labial Gloss Tornasol', 7990, 'image/_7d810066-4da3-489b-b471-498c86ef2173.jpg')">Agregar al carrito</a>
+        <div class="row mb-0"> 
+        {% for p in productos%}  
+            <div class="col-lg-4 mb-4" id="col1">
+                <div class="card h-100">
+                    {% if p.imagen%}
+                    <img src="{{p.imagen.url}}" class="card-img-top" alt="...">
+                    {%endif%}
+                    <div class="card-body">
+                        <h5 class="card-title">{{p.nombre}}</h5>
+                        <p class="card-text"> <span id="resaltar">Caracteristicas:</span>{{p.caracteristica}} </p>
+                        <p class="card-text">{{p.marca}} </p>
+                        <p class="precio"> <span id="resaltar"> Precio:</span> <span  id="precio">${{p.precio | intcomma}}</span></p>
+                        <a href="#" class="btn btn-primary" data-id="1" onclick="agregarAlCarrito('Labial Gloss Tornasol', 7990, 'image/_7d810066-4da3-489b-b471-498c86ef2173.jpg')">Agregar al carrito</a>
+                    </div>
                 </div>
             </div>
+        {% endfor%}  
         </div>
-     {% endfor%}  
-    </div>
     </section>
 
 {% endblock %}

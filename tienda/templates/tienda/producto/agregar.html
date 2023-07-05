@@ -1,13 +1,15 @@
 {% extends 'tienda/base.html'%}
 {%load crispy_forms_tags %}
-{%load crispy_forms_filers %}
+{%load crispy_forms_filters %}
 
 {% block contenido %}
 
+<section class="container">
     <div class="row d-flex justify-content-center">
         <di class="v col-12-cold-md-6">
             <div class="card">
                 <div class="card-body">
+                    {{mensaje}}
                     <form action="" method="post" enctype="multipart/form-data">
 
                         {% csrf_token %}
@@ -24,5 +26,6 @@
             </div>
         </di>
     </div>  
+</section>
 
 {% endblock %}

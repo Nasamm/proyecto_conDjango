@@ -19,7 +19,7 @@
 <body>
     <!-- Menú de navegación -->
     <nav class="navbar navbar-expand-md navbar-light bg-light">
-        <a href="{%url 'index'%}">
+        <a href="./index.html">
             <img src="{% static 'image/logo-removebg-preview.png'%}" alt="Logo" width="90px" height="90px"
                 class="d-inline-block align-text-top">
         </a>
@@ -33,12 +33,26 @@
                     <a class="nav-link" href="#productos">PRODUCTOS</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'agregar-producto' %}">AGREGAR PRODUCTO</a>
+                    <a class="nav-link" href="{% url 'sobrenos' %}">SOBRE NOSOTRAS</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'listar-producto' %}">LISTAR PRODUCTOS</a>
+                    <a class="nav-link" href="{% url 'registro' %}">INICIAR SESIÓN</a>
+                </li>
+                <li>
+                    <a class="nav-link" id="carrito-btn" href="#" onclick="showCart()">
+                        <i class="fas fa-shopping-cart fa-lg"></i>
+                    </a>
                 </li>
             </ul>
+            <div id="carrito">
+                <ul id="carrito-items">
+                    <!-- Los elementos del carrito se agregarán aquí dinámicamente -->
+                </ul>
+                <div id="total-carrito"></div>
+                <button id="vaciar-carrito">Vaciar carrito</button>
+                <button id="continuar-compra">Continuar compra</button>
+            </div>
+        </div>
     </nav>
     <!-- Carrusel de imágenes -->
     <section>
@@ -81,6 +95,22 @@
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="sr-only">Siguiente</span>
             </a>
+        </div>
+    </section>
+    <div class="npt">
+        <h2 class="text-center">NUEVOS PRODUCTOS TORNASOL</h2>
+    </div>
+
+    <section>
+        <div class="description">
+            <p id="parrafo">
+                Todos nuestros productos son elaborados con ingredientes cuidadosamente seleccionados y probados para
+                asegurar su eficacia y seguridad en todo tipo de piel. Además, nos enfocamos en la innovación y la
+                creatividad para ofrecer productos únicos y originales que se diferencian de los productos
+                convencionales en el mercado. Trabajamos constantemente en el desarrollo de nuevas fórmulas y
+                tecnologías para ofrecer a nuestros clientes los mejores resultados y una experiencia única al utilizar
+                nuestros cosméticos.
+            </p>
         </div>
     </section>
     
@@ -132,6 +162,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
         crossorigin="anonymous"></script>
+    <script src="{% static 'scripts/carro.js'%}  "></script>
 
 </body>
 
