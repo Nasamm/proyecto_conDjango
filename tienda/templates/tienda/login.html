@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -8,15 +10,15 @@
   <title>Inicio de sesion</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
     integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-  <link rel="stylesheet" href="./styles/stylelogin.css">
+  <link rel="stylesheet" href="{% static 'styles/stylelogin.css'%}">
 
 </head>
 
 <body>
   <!-- Menú de navegación -->
   <nav class="navbar navbar-expand-md navbar-light bg-light">
-    <a href="./index.html">
-      <img src="image/logo-removebg-preview.png" alt="Logo" width="90px" height="90px"
+    <a href="{% url 'index'%}">
+      <img src="{% static 'image/logo-removebg-preview.png'%}" alt="Logo" width="90px" height="90px"
         class="d-inline-block align-text-top">
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -26,45 +28,45 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <a class="nav-link" href="./index.html#productos">PRODUCTOS</a>
+          <a class="nav-link" href="{% url 'index' %}#productos">PRODUCTOS</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="./sobrenos.html">SOBRE NOSOTRAS</a>
+          <a class="nav-link" href="{% url 'sobrenos' %}">SOBRE NOSOTRAS</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="./login.html">INICIAR SESIÓN</a>
-        </li>
-        <li class="nav-item" id="carro">
-          <a class="nav-link" href="./carrito.html">
-            <i class="fas fa-shopping-cart fa-lg"></i>
-          </a>
+          <a class="nav-link" href="{% url 'login' %}">INICIAR SESIÓN</a>
         </li>
       </ul>
     </div>
   </nav>
   <div class="center">
     <h1>Inicio de sesión</h1>
-    <form method="post">
+    <form method="POST">
+      {% csrf_token %}
       <div class="txt_field">
-        <input type="email" required>
+        {{ form.email }}
         <span></span>
         <label for="">Correo electrónico</label>
       </div>
       <span id="email-error"></span>
       <div class="txt_field">
-        <input type="password" required>
+        {{ form.password }}
         <span></span>
         <label for="">Contraseña</label>
       </div>
       <span id="password-error"></span>
       <div class="pass">¿Olvidaste la contraseña?</div>
-      <input type="submit" value="Ingresar">
+      <input type="submit" value="Submit">
+      {{ form.captcha }}
+      {% for error in form.captcha.errors %}
+        <p> {{ error }}</p>
+      {% endfor %}
       <div class="singup_link">
-        ¿No eres miembro? <a href="./registro.html">Registrate</a>
+        ¿No eres miembro? <a href="{% static 'registro' %}">Registrate</a>
       </div>
+ 
     </form>
   </div>
-
   <script src="https://kit.fontawesome.com/57faba85b1.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
@@ -72,10 +74,9 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
     crossorigin="anonymous"></script>
-
   <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E="
     crossorigin="anonymous"></script>
-  <script src="./scripts/login.js"></script>
+  <script src="{% static 'scripts/login.js'%}"></script>
 </body>
 
 </html>

@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.humanize',
     'crispy_forms',
     'crispy_bootstrap5',
+    'captcha'
 
 ]
 
@@ -134,3 +135,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+RECAPTCHA_PUBLIC_KEY = '6LcoCfwmAAAAAIHdM8DyYTHOBhtDlIgdNh6M5ff-'
+RECAPTCHA_PRIVATE_KEY = '6LcoCfwmAAAAAHGxEpSHRsmuorWvJdWzzK8LKvu4'

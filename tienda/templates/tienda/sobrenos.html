@@ -1,5 +1,7 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,34 +9,31 @@
     <title>Sobre Nosotras</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
         integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-    <link rel="stylesheet" href="./styles/stylesobren.css">
+    <link rel="stylesheet" href="{% static 'styles/stylesobren.css' %}">
     <link rel="shortcut icon" href="image/logo-removebg-preview.png">
 </head>
+
 <body>
     <!-- Menú de navegación -->
     <nav class="navbar navbar-expand-md navbar-light bg-light">
-        <a href="./index.html">
-            <img src="image/logo-removebg-preview.png" alt="Logo" width="90px" height="90px" class="d-inline-block align-text-top">
+        <a href="{%url 'index'%}">
+            <img src="{% static 'image/logo-removebg-preview.png'%}" alt="Logo" width="90px" height="90px"
+                class="d-inline-block align-text-top">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="./index.html#productos">PRODUCTOS</a>
+                    <a class="nav-link" href="{% url 'index' %}#productos">PRODUCTOS</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="./sobrenos.html">SOBRE NOSOTRAS</a>
+                    <a class="nav-link" href="{% url 'sobrenos' %}">SOBRE NOSOTRAS</a>
                 </li>
-                <li class="nav-item" >
-                    <a class="nav-link" href="./login.html">INICIAR SESIÓN</a>
-                </li>
-                <li class="nav-item" id="carro">
-                    <a class="nav-link" href="./carrito.html">
-                        <i class="fas fa-shopping-cart fa-lg"></i>
-                    </a>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'login' %}">INICIAR SESIÓN</a>
                 </li>
             </ul>
         </div>
@@ -45,7 +44,13 @@
         </h1>
         <h4 class="init">
             <p>
-                La marca surge gracias a dos estudiantes apasionadas por el mundo de la belleza y el cuidado personal que decidieron emprender su propio negocio. Con un gran interés en los productos de alta calidad, estas dos jóvenes se enfocadas en vender cosméticos exclusivos para satisfacer las necesidades de sus clientes más exigentes. Su compromiso y dedicación se reflejan en cada venta que realizan, brindando asesoramiento personalizado y recomendaciones basadas en las necesidades individuales de cada cliente. La calidad de los productos que ofrecen es evidente, y pronto la marca floreció y se convirtió en un éxito gracias a su pasión y compromiso con la excelencia en el cuidado personal.
+                La marca surge gracias a dos estudiantes apasionadas por el mundo de la belleza y el cuidado personal
+                que decidieron emprender su propio negocio. Con un gran interés en los productos de alta calidad, estas
+                dos jóvenes se enfocadas en vender cosméticos exclusivos para satisfacer las necesidades de sus clientes
+                más exigentes. Su compromiso y dedicación se reflejan en cada venta que realizan, brindando
+                asesoramiento personalizado y recomendaciones basadas en las necesidades individuales de cada cliente.
+                La calidad de los productos que ofrecen es evidente, y pronto la marca floreció y se convirtió en un
+                éxito gracias a su pasión y compromiso con la excelencia en el cuidado personal.
             </p>
         </h4>
     </div>
@@ -53,38 +58,56 @@
         Productos destacados
     </h2>
     <div class="container">
-        <img src="image/fc3.4.jpg" alt="">
+        <img src="{% static 'image/fc3.4.jpg'%}" alt="">
         <p class="texto">
-            Introduce tu mirada en un mundo de colores con nuestra paleta de sombras de ojos. Esta paleta incluye una variedad de tonos vibrantes y sutiles que te permiten crear una amplia gama de looks, desde el aspecto natural del día hasta el dramático de la noche.
-            Además, nuestra paleta incluye tonos mate y brillantes, por lo que puedes experimentar y mezclar para crear el look perfecto. 
-            Esta paleta de sombras viene en un práctico estuche compacto, perfecto para llevar contigo a todas partes. Con esta paleta, podrás crear looks deslumbrantes en cualquier momento y lugar. ¡No te pierdas la oportunidad de añadir esta paleta a tu colección de maquillaje!
+            Introduce tu mirada en un mundo de colores con nuestra paleta de sombras de ojos. Esta paleta incluye una
+            variedad de tonos vibrantes y sutiles que te permiten crear una amplia gama de looks, desde el aspecto
+            natural del día hasta el dramático de la noche.
+            Además, nuestra paleta incluye tonos mate y brillantes, por lo que puedes experimentar y mezclar para crear
+            el look perfecto.
+            Esta paleta de sombras viene en un práctico estuche compacto, perfecto para llevar contigo a todas partes.
+            Con esta paleta, podrás crear looks deslumbrantes en cualquier momento y lugar. ¡No te pierdas la
+            oportunidad de añadir esta paleta a tu colección de maquillaje!
         </p>
-    </div> 
-       
+    </div>
+
 
     <div class="container">
-        <img src="image/fc3.1.jpg" alt="">
+        <img src="{%static 'image/fc3.1.jpg'%}" alt="">
         <p class="texto">
-            Nuestro delineador de ojos es el complemento perfecto para cualquier look. Con su fórmula de larga duración y resistente al agua, este delineador de ojos te permitirá lucir un delineado intenso y definido durante todo el día, sin necesidad de retoques.
-            Nuestro delineador de ojos está disponible para que puedas crear cualquier look que desees. Además, su presentación en un práctico formato de lápiz lo hace fácil de transportar y aplicar en cualquier momento y lugar.
-            Con nuestro delineador de ojos, podrás conseguir un look impecable y duradero, sin importar cuáles sean tus planes para el día. ¡Prueba nuestro delineador de ojos hoy mismo y descubre cómo puede transformar tu mirada!
+            Nuestro delineador de ojos es el complemento perfecto para cualquier look. Con su fórmula de larga duración
+            y resistente al agua, este delineador de ojos te permitirá lucir un delineado intenso y definido durante
+            todo el día, sin necesidad de retoques.
+            Nuestro delineador de ojos está disponible para que puedas crear cualquier look que desees. Además, su
+            presentación en un práctico formato de lápiz lo hace fácil de transportar y aplicar en cualquier momento y
+            lugar.
+            Con nuestro delineador de ojos, podrás conseguir un look impecable y duradero, sin importar cuáles sean tus
+            planes para el día. ¡Prueba nuestro delineador de ojos hoy mismo y descubre cómo puede transformar tu
+            mirada!
         </p>
     </div>
     <div class="container">
-        <img src="image/fc1.4.jpg" class="img-align" alt="">
+        <img src="{% static 'image/fc1.4.jpg'%}" class="img-align" alt="">
         <p class="texto">
-            ¿Quieres lucir unos labios irresistibles y llenos de brillo? Entonces no puedes perderte nuestro fabuloso labial gloss. Con su fórmula de alta calidad, este gloss te dará una sensación suave y ligera, y un brillo radiante que hará que tus labios se vean más llenos y jugosos.
-            Además, nuestro labial gloss es muy fácil de aplicar, gracias a su aplicador especial que te permite distribuir el producto de manera uniforme y precisa. Y lo mejor de todo es que su fórmula es resistente al agua y a la transferencia, lo que significa que podrás disfrutar de su brillo y color durante horas sin tener que preocuparte por retoques constantes.
-            Así que si quieres lograr unos labios radiantes y llenos de vida, no esperes más y prueba nuestro labial gloss. ¡Te aseguramos que no te arrepentirás!
+            ¿Quieres lucir unos labios irresistibles y llenos de brillo? Entonces no puedes perderte nuestro fabuloso
+            labial gloss. Con su fórmula de alta calidad, este gloss te dará una sensación suave y ligera, y un brillo
+            radiante que hará que tus labios se vean más llenos y jugosos.
+            Además, nuestro labial gloss es muy fácil de aplicar, gracias a su aplicador especial que te permite
+            distribuir el producto de manera uniforme y precisa. Y lo mejor de todo es que su fórmula es resistente al
+            agua y a la transferencia, lo que significa que podrás disfrutar de su brillo y color durante horas sin
+            tener que preocuparte por retoques constantes.
+            Así que si quieres lograr unos labios radiantes y llenos de vida, no esperes más y prueba nuestro labial
+            gloss. ¡Te aseguramos que no te arrepentirás!
         </p>
     </div>   
-    
-    <script src="https://kit.fontawesome.com/57faba85b1.js" crossorigin="anonymous"></script> 
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+</body>
+<script src="https://kit.fontawesome.com/57faba85b1.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
     crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
     crossorigin="anonymous"></script>
 </body>
+
 </html>

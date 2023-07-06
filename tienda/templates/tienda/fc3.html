@@ -1,20 +1,21 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Galeria de fotos</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
         integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-    <link rel="stylesheet" href="./styles/stylefc3.css">
+    <link rel="stylesheet" href="{% static 'styles/stylefc3.css' %}">
 </head>
 <body>
     <!-- Menú de navegación -->
     <nav class="navbar navbar-expand-md navbar-light bg-light">
-        <a href="./index.html">
-            <img src="image/logo-removebg-preview.png" alt="Logo" width="90px" height="90px" class="d-inline-block align-text-top">
+        <a href="{%url 'index'%}">
+            <img src="{% static 'image/logo-removebg-preview.png'%}" alt="Logo" width="90px" height="90px" class="d-inline-block align-text-top">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -23,30 +24,25 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="./index.html#productos">PRODUCTOS</a>
+                    <a class="nav-link" href="{% url 'index' %}#productos">PRODUCTOS</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="./sobrenos.html">SOBRE NOSOTRAS</a>
+                    <a class="nav-link" href="{% url 'sobrenos' %}">SOBRE NOSOTRAS</a>
                 </li>
-                <li class="nav-item" >
-                    <a class="nav-link" href="./login.html">INICIAR SESIÓN</a>
-                </li>
-                <li class="nav-item" id="carro">
-                    <a class="nav-link" href="./carrito.html">
-                        <i class="fas fa-shopping-cart fa-lg"></i>
-                    </a>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'login' %}">INICIAR SESIÓN</a>
                 </li>
             </ul>
         </div>
     </nav>
     <div class="image-container">
         <section class="image-set">
-            <img src="image/fc3.1.jpg" class="img-item" alt="Primer tipo de imagen del primer conjunto">
-            <img src="image/fc3.2.jpg"class="img-item" alt="Segundo tipo de imagen del primer conjunto">
+            <img src="{% static 'image/fc3.1.jpg'%}" class="img-item" alt="Primer tipo de imagen del primer conjunto">
+            <img src="{% static 'image/fc3.2.jpg'%}"class="img-item" alt="Segundo tipo de imagen del primer conjunto">
         </section>
         <section class="image-set">
-            <img src="image/fc3.3.jpg" class="img-item" alt="Primer tipo de imagen del segundo conjunto">
-            <img src="image/fc3.4.jpg" class="img-item" alt="Segundo tipo de imagen del segundo conjunto">
+            <img src="{% static 'image/fc3.3.jpg'%}" class="img-item" alt="Primer tipo de imagen del segundo conjunto">
+            <img src="{% static 'image/fc3.4.jpg'%}" class="img-item" alt="Segundo tipo de imagen del segundo conjunto">
         </section>
     </div>
     <script src="https://kit.fontawesome.com/57faba85b1.js" crossorigin="anonymous"></script>

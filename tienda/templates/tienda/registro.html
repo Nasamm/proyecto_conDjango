@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="es">
 
@@ -15,29 +16,23 @@
 <body>
     <!-- Menú de navegación -->
     <nav class="navbar navbar-expand-md navbar-light bg-light">
-        <a href="./index.html">
-            <img src="image/logo-removebg-preview.png" alt="Logo" width="90px" height="90px"
-                class="d-inline-block align-text-top">
+        <a href="{% url 'index'%}">
+            <img src="{% static 'image/logo-removebg-preview.png'%}" alt="Logo" width="90px" height="90px" class="d-inline-block align-text-top">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="./index.html#productos">PRODUCTOS</a>
+                    <a class="nav-link" href="{% url 'index' %}#productos">PRODUCTOS</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="./sobrenos.html">SOBRE NOSOTRAS</a>
+                    <a class="nav-link" href="{% url 'sobrenos' %}">SOBRE NOSOTRAS</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="./login.html">INICIAR SESIÓN</a>
-                </li>
-                <li class="nav-item" id="carro">
-                    <a class="nav-link" href="./carrito.html">
-                        <i class="fas fa-shopping-cart fa-lg"></i>
-                    </a>
+                    <a class="nav-link" href="{% url 'login' %}">INICIAR SESIÓN</a>
                 </li>
             </ul>
         </div>

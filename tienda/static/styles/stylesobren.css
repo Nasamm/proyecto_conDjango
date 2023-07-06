@@ -7,7 +7,7 @@
 }
 
 body{
-    background: linear-gradient(120deg, #50cace,#a740b1);
+    background: linear-gradient(120deg, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
     font-family: 'Poppins', sans-serif;
 }
 
@@ -27,7 +27,7 @@ h1{
 h4{
     text-align: justify;
     padding: 2%;
-    background: linear-gradient(120deg, #e79ae1,#0beca9);
+    background: linear-gradient(120deg,rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
 }
 
 h2{

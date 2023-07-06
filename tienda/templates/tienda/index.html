@@ -1,4 +1,4 @@
-{% extends 'tienda/base.html'%}
+{% extends 'tienda/baseuser.html'%}
 {% block contenido %}
 {% load humanize %}
 {% load static %}
@@ -16,7 +16,8 @@
                         <p class="card-text"> <span id="resaltar">Caracteristicas:</span>{{p.caracteristica}} </p>
                         <p class="card-text">{{p.marca}} </p>
                         <p class="precio"> <span id="resaltar"> Precio:</span> <span  id="precio">${{p.precio | intcomma}}</span></p>
-                        <a href="#" class="btn btn-primary" data-id="1" onclick="agregarAlCarrito('Labial Gloss Tornasol', 7990, 'image/_7d810066-4da3-489b-b471-498c86ef2173.jpg')">Agregar al carrito</a>
+                        <a href="#" class="btn btn-primary" data-id="{{ p.id }}" onclick="agregarAlCarrito('{{ p.nombre }}', {{ p.precio }}, '{{ p.imagen.url }}')">Agregar al carrito</a>
+
                     </div>
                 </div>
             </div>

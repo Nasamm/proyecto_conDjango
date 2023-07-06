@@ -19,7 +19,7 @@
 <body>
     <!-- Menú de navegación -->
     <nav class="navbar navbar-expand-md navbar-light bg-light">
-        <a href="./index.html">
+        <a href="{%url 'index'%}">
             <img src="{% static 'image/logo-removebg-preview.png'%}" alt="Logo" width="90px" height="90px"
                 class="d-inline-block align-text-top">
         </a>
@@ -30,13 +30,13 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="#productos">PRODUCTOS</a>
+                    <a class="nav-link" href="{% url 'index' %}#productos">PRODUCTOS</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'sobrenos' %}">SOBRE NOSOTRAS</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'registro' %}">INICIAR SESIÓN</a>
+                    <a class="nav-link" href="{% url 'login' %}">INICIAR SESIÓN</a>
                 </li>
                 <li>
                     <a class="nav-link" id="carrito-btn" href="#" onclick="showCart()">
@@ -49,8 +49,8 @@
                     <!-- Los elementos del carrito se agregarán aquí dinámicamente -->
                 </ul>
                 <div id="total-carrito"></div>
-                <button id="vaciar-carrito">Vaciar carrito</button>
-                <button id="continuar-compra">Continuar compra</button>
+                <button id="vaciar-carrito" class="btn btn-secondary">Vaciar carrito</button>
+                <button id="continuar-compra" class="btn btn-primary">Continuar compra</button>
             </div>
         </div>
     </nav>
@@ -64,7 +64,7 @@
             </ol>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <a class="card-1" href="./fc1.html">
+                    <a class="card-1" href="{%url 'fc1'%}">
                         <img src="{%static 'image/bocatornasol.jpg'%}" class="d-block w-100" alt="Imagen 1">
                         <div class="carousel-caption d-none d-md-block">
                             <h5>Porque todos merecemos cosas únicas</h5>
@@ -73,7 +73,7 @@
                     </a>
                 </div>
                 <div class="carousel-item">
-                    <a class="card-2" href="./fc2.html">
+                    <a class="card-2" href="{%url 'fc2'%}">
                         <img src="{%static 'image\sombratorna .jpg'%}" class="d-block w-100" alt="Imagen 2">
                         <div class="carousel-caption d-none d-md-block">
                             <h5>Miles de productos innovadores</h5>
@@ -82,7 +82,7 @@
                     </a>
                 </div>
                 <div class="carousel-item">
-                    <a class="card-3" href="./fc3.html">
+                    <a class="card-3" href="{%url 'fc3'%}">
                         <img src="{%static 'image/labialtorna.jpg'%}" class="d-block w-100" alt="Imagen 3">
                     </a>
                 </div>

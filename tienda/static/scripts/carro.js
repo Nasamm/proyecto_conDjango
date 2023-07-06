@@ -1,75 +1,107 @@
-//carrito
-const elementos1 = document.getElementById('productos');
-const lista = document.querySelector('#lista-carrito tbody');
-const vaciarCrritoBtn = document.getElementById('vaciar-carrito');
-let carritoBtn = document.getElementById('carrito-btn');
-let carrito = document.getElementById('carrito');
-let carritoItems = document.getElementById('carrito-items');
-let vaciarCarritoBtn = document.getElementById('vaciar-carrito');
-let continuarCompraBtn = document.getElementById('continuar-compra');
-let totalCarritoElement = document.getElementById('total-carrito');
-let precio = document.getElementById('precio')
+// Variables globales
+const carritoItems = document.getElementById('carrito-items');
+const totalCarritoElement = document.getElementById('total-carrito');
+const vaciarCarritoBtn = document.getElementById('vaciar-carrito');
+const continuarCompraBtn = document.getElementById('continuar-compra');
+let totalCarrito = 0;
 
-function showCart() {
-    let x = document.getElementById("carrito");
-    if (x.style.display === "none") {
-        x.style.display = "block";
-    } else {
-        x.style.display = "none";
-    }
-}
-
+// Función para agregar un producto al carrito
 function agregarAlCarrito(nombre, precio, imagenURL) {
-    let totalCarrito = parseFloat(totalCarritoElement.dataset.total || 0);
-    let item = document.createElement('li');
-    let imagen = document.createElement('img');
-    imagen.src = imagenURL;
-    let nombreElemento = document.createElement('span');
-    nombreElemento.textContent = nombre;
-    let precioElemento = document.createElement('span');
-    precioElemento.textContent = precio;
+  const productoExistente = buscarProductoEnCarrito(nombre);
+  
+  if (productoExistente) {
+    productoExistente.cantidad++;
+    actualizarItemCarrito(productoExistente);
+  } else {
+    const nuevoProducto = {
+      nombre: nombre,
+      precio: precio,
+      imagenURL: imagenURL,
+      cantidad: 1
+    };
+    carritoItems.appendChild(crearItemCarrito(nuevoProducto));
+  }
+  
+  totalCarrito += precio;
+  actualizarTotalCarrito();
+}
+
+// Función para crear un nuevo item de carrito
+function crearItemCarrito(producto) {
+  const item = document.createElement('li');
+  
+  const imagen = document.createElement('img');
+  imagen.src = producto.imagenURL;
+  item.appendChild(imagen);
+  
+  const nombreElemento = document.createElement('span');
+  nombreElemento.textContent = producto.nombre;
+  item.appendChild(nombreElemento);
+  
+  const cantidadElemento = document.createElement('span');
+  cantidadElemento.textContent = producto.cantidad;
+  item.appendChild(cantidadElemento);
+  
+  const precioElemento = document.createElement('span');
+  precioElemento.textContent = producto.precio.toFixed(2);
+  item.appendChild(precioElemento);
+  
+  const botonEliminar = document.createElement('button');
+  botonEliminar.textContent = 'Eliminar';
+  botonEliminar.addEventListener('click', function() {
+    totalCarrito -= producto.precio * producto.cantidad;
+    actualizarTotalCarrito();
+    item.remove();
+  });
+  item.appendChild(botonEliminar);
+  
+  return item;
+}
+
+// Función para actualizar un item de carrito existente
+function actualizarItemCarrito(producto) {
+  const item = buscarItemEnCarrito(producto.nombre);
+  
+  if (item) {
+    item.querySelector('span:nth-child(3)').textContent = producto.cantidad;
+    item.querySelector('span:last-child').textContent = (producto.precio * producto.cantidad).toFixed(2);
+  }
+}
+
+// Función para buscar un producto en el carrito
+function buscarProductoEnCarrito(nombre) {
+  const itemsCarrito = carritoItems.querySelectorAll('li');
+  
+  for (let i = 0; i < itemsCarrito.length; i++) {
+    const item = itemsCarrito[i];
+    const nombreItem = item.querySelector('span:nth-child(2)').textContent;
     
-    let botonEliminar = document.createElement('button');
-    botonEliminar.innerHTML = '-';
-    botonEliminar.addEventListener('click', function() {
-      let item = this.parentNode; // Obtener el elemento del carrito (elemento padre del botón)
-      item.remove(); // Eliminar el elemento del carrito
-      calcularTotalCarrito();
-      totalCarrito -= precio;
-    });
-
-    item.appendChild(imagen);
-    item.appendChild(nombreElemento);
-    item.appendChild(precioElemento);
-    item.appendChild(botonEliminar)
-
-    carritoItems.appendChild(item);
-
-    totalCarrito += precio;
-    totalCarritoElement.textContent = 'Total: $' + totalCarrito.toFixed(2);
-    totalCarritoElement.dataset.total = totalCarrito;
+    if (nombreItem === nombre) {
+      return {
+        nombre: nombreItem,
+        precio: parseFloat(item.querySelector('span:last-child').textContent),
+        imagenURL: item.querySelector('img').src,
+        cantidad: parseInt(item.querySelector('span:nth-child(3)').textContent)
+      };
+    }
+  }
+  
+  return null;
 }
 
-vaciarCarritoBtn.addEventListener('click', function () {
-    carritoItems.innerHTML = '';
-    totalCarritoElement.textContent = 'Total: $0.00';
-    totalCarritoElement.dataset.total = 0;
-});
-
-continuarCompraBtn.addEventListener('click', function () {
-    // Lógica para continuar con la compra
-});
-
-function calcularTotalCarrito() {
-    var itemsCarrito = document.querySelectorAll('#carrito-items li');
-    var total = 0;
-
-    itemsCarrito.forEach(function (item) {
-        var precioElemento = item.querySelector('span:last-child');
-        var precioTexto = precioElemento.textContent.replace('$', '');
-        var precio = parseFloat(precioTexto);
-        total += precio;
-    });
-
-    totalCarritoElement.textContent = 'Total: $' + total.toFixed(2);
-}
+// Función para buscar un item en el carrito por su nombre
+function buscarItemEnCarrito(nombre) {
+    const itemsCarrito = carritoItems.querySelectorAll('li');
+    
+    for (let i = 0; i < itemsCarrito.length; i++) {
+      const item = itemsCarrito[i];
+      const nombreItem = item.querySelector('span:nth-child(2)').textContent;
+      
+      if (nombreItem === nombre) {
+        return item;
+      }
+    }
+    
+    return null;
+  }
+  
