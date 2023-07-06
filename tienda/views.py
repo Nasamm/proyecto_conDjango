@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect , get_object_or_404
 from .models import Producto
 from .forms import ProductoForm
 from .forms import LoginForm
+from .forms import RegisterForm
 
 # Create your views here.
 def home(request):
@@ -46,7 +47,6 @@ def customer_login(request):
 #     else:
 #         return render(request, 'tienda/login.html')
 
-
 def agregar_producto(request):
     data = {'form' : ProductoForm()}
 
@@ -86,8 +86,20 @@ def eliminar_producto(request, id):
     return redirect(to="listar-producto")
 
 def registro(request):
+    if request.method == "POST":
+        form = RegisterForm(request.POST)
+        if form.is_valid():
+            print("VALIDO!")
+            print(form.cleaned_data["captcha"])
+            return redirect('login')
+        else:
+            print("INVALIDO!")
+    else:
 
-    return render(request, 'tienda/registro.html')
+        form = RegisterForm()
+
+    context = {"form": form}
+    return render(request, 'tienda/registro.html',context)
 
 def us(request):
 
